@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { BrowserRouter, Route, Link } from "react-router-dom";
+import Boat from "./Boat";
 
 class Profile extends Component {
     constructor(props) {
@@ -10,7 +12,16 @@ class Profile extends Component {
         };
     }
     render() {
-        return <div>Hello</div>;
+        return (
+            <div>
+                <BrowserRouter>
+                    <div>
+                        <Link to="/boats">Go to Boats</Link>
+                        <Route path="/boats" component={Boat} />
+                    </div>
+                </BrowserRouter>
+            </div>
+        );
     }
 }
 
