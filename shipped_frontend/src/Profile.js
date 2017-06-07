@@ -17,7 +17,10 @@ class Profile extends Component {
                 <BrowserRouter>
                     <div>
                         <Link to="/boats">Go to Boats</Link>
+                        <Link to="/boats">Go to Jobs</Link>
+
                         <Route path="/boats" component={Boat} />
+                        <Route path="/jobs" component={Job} />
                     </div>
                 </BrowserRouter>
             </div>
