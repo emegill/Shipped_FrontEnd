@@ -10,8 +10,8 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            Users: [],
-            LogIn: false
+            LogIn: false,
+            user_id: 0
         };
         this.setLogIn = this.setLogIn.bind(this);
     }
@@ -24,18 +24,13 @@ class App extends Component {
                 />
             );
         } else {
-            return <Profile userList={this.state.Users} />;
+            return <Profile userid={this.state.user_id} />;
         }
     }
-    componentWillMount() {
-        axios.get("/users").then(
-            function(response) {
-                this.setState({ User: response.data });
-            }.bind(this)
-        );
-    }
-    setLogIn(passedValue) {
-        this.setState({ LogIn: passedValue });
+    setLogIn(passedLogin, userid) {
+        this.setState({ LogIn: passedLogin, user_id: userid });
+        console.log(this.state);
+        console.log(userid);
     }
 }
 

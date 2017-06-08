@@ -3,8 +3,8 @@ import React, { Component } from "react";
 import axios from "axios";
 
 class Job extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             description: "",
             origin: "",
@@ -12,15 +12,17 @@ class Job extends Component {
             cost: "",
             containers_needed: "",
             name: "",
-            boat_id: ""
+            boat_id: "",
+            user_id: this.props.userid
         };
         this.setDescription = this.setDescription.bind(this);
         this.setOrigin = this.setOrigin.bind(this);
         this.setDestination = this.setDestination.bind(this);
         this.setCost = this.setCost.bind(this);
-        this.setContainerNeeded = this.setContainerNeeded.bind(this);
+        this.setContainerAmount = this.setContainerAmount.bind(this);
         this.setName = this.setName.bind(this);
         this.setBoatId = this.setBoatId.bind(this);
+        this.makeJob = this.makeJob.bind(this);
     }
     render() {
         return (
@@ -40,6 +42,7 @@ class Job extends Component {
                         onChange={this.setContainerAmount}
                         placeholder="container amount"
                     />
+                    <label>Boat Id</label>
                     <select onChange={this.setBoatId} placeholder="boat id">
                         <option>1</option>
                         <option>2</option>
@@ -55,7 +58,7 @@ class Job extends Component {
         );
     }
     setDescription(event) {
-        this.setState({ name: event.target.value });
+        this.setState({ description: event.target.value });
     }
     setOrigin(event) {
         this.setState({ origin: event.target.value });
@@ -83,15 +86,15 @@ class Job extends Component {
                     origin: this.state.origin,
                     destination: this.state.destination,
                     cost: this.state.cost,
-                    container_needed: this.state.container_needed,
-                    boat_id: this.state.boat_id
+                    containers_needed: this.state.container_needed,
+                    boat_id: this.state.boat_id,
+                    name: this.state.name,
+                    user_id: this.state.user_id
                 }
             })
-            .then(
-                function(response) {
-                    console.log(response.data);
-                }.bind(this)
-            );
+            .then(function(response) {
+                console.log(response.data);
+            });
     }
 }
 

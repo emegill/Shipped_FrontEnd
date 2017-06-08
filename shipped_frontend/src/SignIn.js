@@ -43,7 +43,11 @@ class SignIn extends Component {
             })
             .then(
                 function(response) {
-                    this.props.logInFunction(response.data);
+                    console.log(response);
+                    this.props.logInFunction(
+                        response.data.views,
+                        response.data.user_id
+                    );
                 }.bind(this)
             );
     }
