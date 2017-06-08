@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
+import "./profile.css";
 import Boat from "./Boat";
 import Job from "./Job";
 
@@ -15,12 +16,16 @@ class Profile extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="profile-div">
                 <BrowserRouter>
                     <div>
                         <h2>Welcome to your profile page</h2>
-                        <Link to="/boats">Go to Boats</Link>
-                        <Link to="/jobs">Go to Jobs</Link>
+                        <label>
+                            Go to boats:<Link to="/boats">Boat page</Link>
+                        </label>
+                        <label>
+                            Go to Jobs:<Link to="/jobs">Jobs page</Link>
+                        </label>
 
                         <Route path="/boats" component={Boat} />
                         <Route path="/jobs" component={this.displayJob} />

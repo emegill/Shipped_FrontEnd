@@ -82,13 +82,13 @@ class Job extends Component {
         axios
             .post("/jobs", {
                 data: {
+                    name: this.state.name,
                     description: this.state.description,
                     origin: this.state.origin,
                     destination: this.state.destination,
                     cost: this.state.cost,
                     containers_needed: this.state.container_needed,
                     boat_id: this.state.boat_id,
-                    name: this.state.name,
                     user_id: this.state.user_id
                 }
             })

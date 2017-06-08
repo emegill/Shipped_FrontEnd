@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./signin.css";
 
 class SignIn extends Component {
     constructor(props) {
@@ -15,7 +16,7 @@ class SignIn extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="signin-div">
                 <h2>Sign In</h2>
                 <input onChange={this.setUsername} placeholder="username" />
                 <input onChange={this.setPassword} placeholder="password" />
